@@ -1,0 +1,11 @@
+<div ng-repeat="p in personalListHolWeb.pl"
+	ng-if="p.department_id==departmentInfo.department_id">
+	{{p.personal_url}} 
+	--
+	{{p.personal_surgeon}} 
+	/{{p.personal_anesthetist}} 
+	/{{p.position_id}} 
+	--
+	<span> {{p.personal_surname}}
+		{{p.personal_name}} {{p.personal_patronymic}} </span>
+</div>

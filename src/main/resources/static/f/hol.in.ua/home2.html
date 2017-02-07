@@ -1,0 +1,139 @@
+<div class="w3-container">
+	<div class="w3-row-padding w3-margin-top">
+		<div class="w3-quarter">
+			<div class="w3-card-2">
+				<header class="w3-container w3-light-grey">
+					<a href="/v/patient">Пацієнтам</a>
+				</header>
+				<ul>
+					<li>Як добратись</li>
+					<li>Де знайти</li>
+					<li>До кого звернутись</li>
+				</ul>
+			</div>
+			<p></p>
+			<div class="w3-card-2">
+				<header class="w3-container w3-light-grey">Соціальні мережі</header>
+				<p>&nbsp;</p>
+			</div>
+			<p></p>
+			<div class="w3-card-2">
+				<header class="w3-container w3-light-grey">Наші фахівці</header>
+				<p>&nbsp;</p>
+			</div>
+		</div>
+		<div class="w3-half">
+			<div class="w3-card-2">
+				<header class="w3-container w3-light-grey">
+					<a href="/v/department"> Відділення</a>
+				</header>
+				<p>&nbsp;</p>
+				<p>Слайд-шоу обраних даних з показників відділень</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+			</div>
+			<p></p>
+			<div class="w3-card-2">
+				<header class="w3-container w3-light-grey">Новини</header>
+				<p>&nbsp;</p>
+				<p>Стрічка обраних даних з новин та корисної інформації відділень хронологічно</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+			</div>
+		</div>
+		<div class="w3-quarter">
+			<div class="w3-card-2">
+				<header class="w3-container w3-light-grey">
+					<a href="/v/about"> Про лікарню</a>
+				</header>
+				<p>&nbsp;</p>
+			</div>
+			<p></p>
+			<div class="w3-card-2">
+				<header class="w3-container w3-light-grey">
+					<a href="/v/holmedic"> Медикам</a>
+				</header>
+				<p>&nbsp;</p>
+			</div>
+			<p></p>
+			<div class="w3-card-2">
+				<header class="w3-container w3-light-grey">
+				<a href="/v/nursing">{{config.nursing.shortName}}
+				</a></header>
+				<p>&nbsp;</p>
+			</div>
+			<p></p>
+			<div class="w3-card-2">
+			<div class="w3-tiny">
+				Werbung
+			</div>
+			</div>
+		</div>
+	</div>
+	<hr/>
+	<div class="w3-row-padding w3-margin-top">
+		<div class="w3-third">
+			<div class="w3-card-2">
+	site map
+				<div ng-init="pageKey = 'holhome'">
+					{{pageKey}}
+					<ul ng-if="config.hasChild('parent', pageKey)"
+						ng-include="'/f/hol.in.ua/ng/siteMapLi.html'"></ul>
+				</div>
+			</div>
+		</div>
+		<div class="w3-third">
+			<div class="w3-card-2">
+				<div ng-include="'/f/hol.in.ua/ng/menuHome.html'"></div>
+				<hr />
+				s
+			</div>
+		</div>
+		<div class="w3-third">
+			<div class="w3-card-2">
+				<div class="w3-dropdown-hover">
+					<button class="w3-btn w3-red">Hover Over Me!</button>
+					<div class="w3-dropdown-content w3-border">
+						<a href="#">Link 1</a> <a href="#">Link 2</a> <a href="#">Link
+							3</a>
+					</div>
+				</div>
+				<div class="w3-dropdown-hover">
+					<a class="w3-btn w3-white">Hover Over Me!</a>
+					<div class="w3-dropdown-content w3-border">
+						<a href="#">Link 1</a> <a href="#">Link 2</a> <a href="#">Link
+							3</a>
+					</div>
+				</div>
+				<hr/>
+				<div>
+					<ul class="w3-navbar w3-card-2 w3-light-grey">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Link 1</a></li>
+						<li class="w3-dropdown-hover"><a href="#">Dropdown <i
+								class="fa fa-caret-down"></i></a>
+							<div class="w3-dropdown-content w3-white w3-card-4">
+								<a href="#">Link 1</a> <a href="#">Link 2</a> <a href="#">Link
+									3</a>
+							</div></li>
+					</ul>
+				</div>
+				<hr/>
+				<div>
+					<ul class="w3-navbar">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Link 1</a></li>
+						<li><a href="#">Link 2</a></li>
+						<li><a href="#">Link 3</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<hr />
+
+	<p ng-repeat="i in tmpList">
+		<span ng-bind-html="myHTML"></span> {{i}}
+	</p>
+
+</div>

@@ -1,0 +1,7 @@
+<li ng-repeat="(k,v) in config" ng-if="v.parent == pageKey"
+	ng-init="pageKey = k">
+	<a href="/v/{{k}}"> {{k}} 
+	-- {{v.shortName}}
+	</a>
+	<ul ng-if="config.hasChild('parent', pageKey)"
+		ng-include="'/f/hol.in.ua/ng/siteMapLi.html'"></ul></li>

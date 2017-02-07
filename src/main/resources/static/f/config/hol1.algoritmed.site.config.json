@@ -1,0 +1,160 @@
+{
+"a":"b"
+,"am_include_js":"/f/js/mvp1.js"
+,"holhome":{
+	"ng_controller":"HolWebCtrl as holWebCtrl"
+	,"ng_app":"holWebApp"
+	,"th_template":"hol.in.ua2"
+	,"ng_template":"'/f/hol.in.ua/home2.html'"
+}
+,"patient":{
+	"ng_controller":"HolWebCtrl as holWebCtrl"
+	,"ng_app":"holWebApp"
+	,"th_template":"hol.in.ua2"
+	,"ng_template":"'/f/hol.in.ua/patient.html'"
+	,"shortName":"Пацієнтам"
+	,"fa":"fa-user"
+	,"parent":"holhome"
+}
+,"marshrutka":{
+	"ng_controller":"HolWebCtrl as holWebCtrl"
+	,"ng_app":"holWebApp"
+	,"th_template":"hol.in.ua2"
+	,"ng_template":"'/f/hol.in.ua/marshrutka.html'"
+	,"shortName":"Маршрутка"
+	,"menuHome":"patient"
+	,"parent":"patient"
+}
+,"holkarta":{
+	"ng_controller":"HolWebCtrl as holWebCtrl"
+	,"ng_app":"holWebApp"
+	,"th_template":"hol.in.ua2"
+	,"ng_template":"'/f/hol.in.ua/holkarta.html'"
+	,"shortName":"Карта лікарня"
+	,"menuHome":"patient"
+	,"parent":"patient"
+}
+,"poliklinika":{
+	"ng_controller":"HolWebCtrl as holWebCtrl"
+	,"ng_app":"holWebApp"
+	,"th_template":"hol.in.ua2"
+	,"ng_template":"'/f/hol.in.ua/poliklinika.html'"
+	,"shortName":"Поліклініка"
+	,"menuHome":"patient"
+	,"parent":"patient"
+}
+,"priymalne":{
+	"ng_controller":"HolWebCtrl as holWebCtrl"
+	,"ng_app":"holWebApp"
+	,"th_template":"hol.in.ua2"
+	,"ng_template":"'/f/hol.in.ua/priymalne.html'"
+	,"shortName":"Приймальне відділення"
+	,"menuHome":"patient"
+	,"parent":"patient"
+}
+,"department":{
+	"ng_controller":"HolWebCtrl as holWebCtrl"
+	,"ng_app":"holWebApp"
+	,"th_template":"hol.in.ua2"
+	,"ng_template":"'/f/hol.in.ua/department.html'"
+	,"shortName":"Відділення"
+	,"fa":"fa-th"
+	,"parent":"holhome"
+	,"topMenu": {
+		"about":{"name":"Про відділення"}
+		,"personal":{"name":"Співпрацівники","fa":"fa-user-md"}
+		,"document":{"name":"Корисна інформація"}
+		,"news":{"name":"Новини","fa":"fa-newspaper-o"}
+		,"archive":{"name":"Архів"}
+	}
+}
+,"holmedic":{
+	"ng_controller":"HolWebCtrl as holWebCtrl"
+	,"ng_app":"holWebApp"
+	,"th_template":"hol.in.ua2"
+	,"ng_template":"'/f/hol.in.ua/holmedic.html'"
+	,"shortName":"Медикам"
+	,"fa":"fa-user"
+	,"parent":"holhome"
+}
+,"about":{
+	"ng_controller":"HolWebCtrl as holWebCtrl"
+	,"ng_app":"holWebApp"
+	,"th_template":"hol.in.ua2"
+	,"ng_template":"'/f/hol.in.ua/about.html'"
+	,"shortName":"Про лікарню"
+	,"fa":"fa-hospital-o"
+	,"parent":"holhome"
+}
+,"nursing":{
+	"ng_controller":"HolWebCtrl as holWebCtrl"
+	,"ng_app":"holWebApp"
+	,"th_template":"hol.in.ua2"
+	,"ng_template":"'/f/hol.in.ua/nursing.html'"
+	,"shortName":"Сестринська справа"
+}
+
+,"insurance":{
+	"ng_controller":"InsuranceCtrl as insuranceCtrl"
+	,"ng_app":"insuranceApp"
+	,"ng_template":"'/f/mvp1/insurance.html'"
+	,"th_template":"w3ag_v01"
+}
+,"medic":{
+	"ng_controller":"MedicCtrl as medicCtrl"
+	,"ng_app":"medicApp"
+	,"ng_template":"'/f/mvp1/medic.html'"
+	,"th_template":"w3ag_v01"
+}
+,"spital":{
+	"ng_controller":"SpitalCtrl as spitalCtrl"
+	,"ng_app":"SpitalApp"
+	,"path":"/v/spital"
+	,"ng_template":"'/f/hol1/spital.html'"
+	,"shortName":"Лікарня"
+	,"shortName2":"Стаціонар"
+	,"th_template":"w3ag_v01"
+}
+,"zwit":{
+	"ng_controller":"ZwitCtrl as zwitCtrl"
+	,"ng_app":"ZwitApp"
+	,"path":"/v/zwit"
+	,"ng_template":"'/f/hol1/zwit.html'"
+	,"parent":"spital"
+	,"shortName":"Звіти"
+	,"th_template":"w3ag_v01"
+}
+,"perinatal-ruh":{
+	"ng_controller":"PologoveRuhCtrl as pologoveRuhCtrl"
+	,"path":"/v/perinatal-ruh"
+	,"ng_app":"PologoveApp"
+	,"am_include_js":"/f/js/perinatal.js"
+	,"ng_template":"'/f/hol1/perinatal-ruh.html'"
+	,"th_template":"perinatal"
+	,"shortName":"Перинатальне рух"
+	,"longName":"Рух пацієнтів перинатального центру ХОЛ "
+	,"parent":"spital"
+}
+,"perinatal-operation":{
+	"ng_controller":"PologoveOpCtrl as pologoveOpCtrl"
+	,"path":"/v/zwit/perinatal-operation"
+	,"ng_app":"PologoveApp"
+	,"am_include_js":"/f/js/perinatal.js"
+	,"ng_template":"'/f/hol1/perinatal-operation.html'"
+	,"th_template":"perinatal"
+	,"shortName":"Перинатальне операції"
+	,"longName":"Звіт по операціям перинатального центру ХОЛ "
+	,"parent":"zwit"
+}
+,"perinatal-icd10":{
+	"ng_controller":"PologoveIcd10Ctrl as pologoveIcd10Ctrl"
+	,"ng_app":"PologoveApp"
+	,"am_include_js":"/f/js/perinatal.js"
+	,"ng_template":"'/f/hol1/perinatal-icd10.html'"
+	,"th_template":"perinatal"
+	,"shortName":"Перинатальне по нозологіям"
+	,"longName":"Звіт по нозологіям перинатального центру ХОЛ"
+	,"parent":"zwit"
+}
+,"b":"c"
+}
