@@ -1,1 +1,26 @@
-patient
+<div class="w3-container">
+	<div class="w3-row-padding w3-margin-top">
+		<div class="w3-threequarter">
+			<div class="w3-card-2">
+				<p>&nbsp;</p>
+				<p>Інформація для пацієнтів</p>
+				<p>&nbsp;</p>
+				<p>Пацієнти про лікування</p>
+				<p>&nbsp;</p>
+			</div>
+		</div>
+		<div class="w3-quarter">
+			<div class="w3-card-2">
+				<header class="w3-light-grey w3-tiny">
+					 Відділення
+				</header>
+				<div class="w3-container"
+					ng-include="'/f/hol.in.ua/ng/department-accordion.html'"></div>
+			</div>
+			<div ng-include="'/f/hol.in.ua/ng/card-reform.html'">
+			</div>
+			<div ng-include="'/f/hol.in.ua/ng/card-werbung.html'">
+			</div>
+		</div>
+	</div>
+</div>

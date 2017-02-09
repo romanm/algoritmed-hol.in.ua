@@ -1,5 +1,6 @@
 package org.algoritmed.web;
 
+import java.security.Principal;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -19,14 +20,24 @@ public class Hol1Rest {
 	private static final Logger logger = LoggerFactory.getLogger(Hol1Rest.class);
 
 	@Autowired	ReadJsonFromFile readJsonFromFile;
+	
+	@GetMapping("/r/principal")
+	public  @ResponseBody Map<String, Object> principal(Principal principal) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("principal", principal);
+		logger.info(" --------- \n"
+				+ "/v/testUUI \n" + map);
+		return map;
+	}
 
 	@GetMapping("/r/testUUID")
-	public  @ResponseBody Map<String, Object> testUUI() {
+	public  @ResponseBody Map<String, Object> testUUI(Principal principal) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		UUID uuid = addUuid(map);
 		map.put("version", uuid.version());
 		map.put("variant", uuid.variant());
 		map.put("length", uuid.toString().length());
+		map.put("principal", principal);
 		logger.info(" --------- \n"
 				+ "/v/testUUI \n" + map);
 		return map;

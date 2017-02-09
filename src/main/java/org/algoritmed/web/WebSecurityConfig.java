@@ -1,5 +1,7 @@
 package org.algoritmed.web;
 
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -15,6 +17,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
@@ -36,11 +39,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.permitAll();
 	}
 
+	@Autowired DataSource dataSourceDb1;
+
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		auth
 		.inMemoryAuthentication()
 		.withUser("user").password("password").roles("USER");
+
+		auth.jdbcAuthentication().dataSource(dataSourceDb1)
+		.usersByUsernameQuery(
+				"select username,password, enabled from users where username=?")
+		.authoritiesByUsernameQuery(
+				"select username, role from user_roles where username=?");
 	}
 
 }

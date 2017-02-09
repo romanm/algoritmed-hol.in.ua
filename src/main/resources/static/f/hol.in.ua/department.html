@@ -5,23 +5,7 @@
 	<div ng-if="!departmentInfo" class="w3-row">
 		<div class="w3-container w3-twothird">
 
-			<div class="w3-container">
-
-				<div class="w3-accordion w3-light-grey"
-					ng-controller="AccordionCtrl as depTypeAccCtrl">
-					<div ng-repeat="(k,o) in departmentTypeAccordion">
-						<button ng-click="depTypeAccCtrl.expandItem(o)"
-							class="w3-btn-block w3-white w3-border w3-left-align">{{o.name}}</button>
-						<div class="w3-accordion-content" ng-class="{'w3-show':o.expand}">
-							<ul>
-								<li ng-repeat="i in o.idx"><a
-									href="/v/department/{{vidsAll.departments[i].vUrl}}">
-										{{vidsAll.departments[i].name}} </a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
+			<div class="w3-container" ng-include="'/f/hol.in.ua/ng/department-accordion.html'">
 			</div>
 
 		</div>
@@ -49,6 +33,9 @@
 
 		<!-- про відділення -->
 		<div ng-if="!departmentPart || 'about' == departmentPart">
+			<div ng-if="param.archive" class="w3-container  w3-card-2  w3-yellow">
+				<b> Архів: </b> {{param.archive}}
+			</div>
 			<div ng-repeat="x1 in departmentInfo.docBlock">
 
 				<div class="w3-row" ng-if="$index==0">

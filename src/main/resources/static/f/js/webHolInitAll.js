@@ -12,7 +12,9 @@ function initAll ($http, $scope){
 		var previousUrl = '/v/'+pp.toString().replace(',','/');
 		return previousUrl;
 	}
+
 	$scope.prevousPath();
+
 	$scope.menuHomeClicked = function(k){
 		return k == $scope.pagePath[0];
 	}
@@ -50,7 +52,6 @@ function initAll ($http, $scope){
 			if(o)
 				o.idx.push(index);
 		});
-		console.log($scope.departmentTypeAccordion);
 	}
 
 	if('personal' == $scope.pagePath.last()){
@@ -65,12 +66,13 @@ function initAll ($http, $scope){
 		);
 	}
 
-	if('department' == $scope.pagePath.last()){
+	if('department' == $scope.pagePath.last()
+	|| 'patient' == $scope.pagePath.last()
+	){
 		var url = '/f/hol.in.ua/model/vidsAll.json.js';
 		$http.get(url).then(
 			function(response) {
 				$scope.vidsAll = response.data;
-				console.log($scope.vidsAll);
 				initDepartmentAccordion();
 			}, function(response) {
 				console.error(response);
@@ -78,8 +80,8 @@ function initAll ($http, $scope){
 		);
 	}
 
-	if(	'department' == $scope.pagePath.forLast()
-		|| 'department' == $scope.pagePath.forForLast()
+	if('department' == $scope.pagePath.forLast()
+	|| 'department' == $scope.pagePath.forForLast()
 	){
 		$scope.departmentName = $scope.pagePath.last();
 		if('department' == $scope.pagePath.forForLast()){
@@ -88,31 +90,28 @@ function initAll ($http, $scope){
 		}
 		var url = '/f/hol.in.ua/model/department/v.' + $scope.departmentName + '.json.js';
 		console.log(url);
+		if(parameters.archive){
+			url = '/f/hol.in.ua/model/department/archive/' + parameters.archive;
+		}
+		console.log(url);
 		$http.get(url).then(
 			function(response) {
 				$scope.departmentInfo = response.data;
-				console.log($scope.departmentInfo);
 			}, function(response) {
 				console.error(response);
 			}
 		);
-		
 	}
 
 	$http.get('/f/config/hol1.algoritmed.site.config.json').then(
 		function(response) {
 			$scope.config = response.data;
-			console.log($scope.config);
 			$scope.menuHomeIndex = [];
 			angular.forEach($scope.config, function(v, i){
-				console.log(v);
 				if(v.parent == 'holhome'){
-					console.log(i);
 					$scope.menuHomeIndex.push(i);
 				}
 			});
-			console.log($scope.menuHomeIndex);
-			console.log($scope.config.patient);
 		}, function(response) {
 			console.error(response);
 		}
@@ -121,13 +120,21 @@ function initAll ($http, $scope){
 	$http.get('/f/hol.in.ua/model/generalInfo.json.js').then(
 		function(response) {
 			$scope.generalInfo = response.data;
-			console.log($scope.generalInfo);
-			console.log($scope.generalInfo.archive);
 		}, function(response) {
 			console.error(response);
 		}
 	);
 
+	
+	$http.get('/r/principal').then(
+		function(response) {
+			$scope.principal = response.data;
+			console.log($scope.principal);
+		}, function(response) {
+			console.error(response);
+		}
+	);
+	
 	$scope.thisPageName = function(){
 		return $scope.pagePath.last();
 	}
@@ -141,6 +148,7 @@ if(window.location.search){
 		var par = value.split("=");
 		parameters[par[0]] = par[1];
 	});
+	console.log(parameters);
 }
 
 //Used to toggle the menu on small screens when clicking on the menu button
