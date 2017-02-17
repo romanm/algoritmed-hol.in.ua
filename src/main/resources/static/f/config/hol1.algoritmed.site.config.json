@@ -86,6 +86,15 @@
 	,"fa":"fa-hospital-o"
 	,"parent":"holhome"
 }
+,"pharmarest":{
+	"ng_controller":"HolWebCtrl as holWebCtrl"
+	,"ng_app":"holWebApp"
+	,"th_template":"hol.in.ua2"
+	,"ng_template":"'/f/hol.in.ua/pharmarest.html'"
+	,"shortName":"Залишок бюджетних ліків"
+	,"fa":"fa-hospital-o"
+	,"parent":"about"
+}
 ,"nursing":{
 	"ng_controller":"HolWebCtrl as holWebCtrl"
 	,"ng_app":"holWebApp"

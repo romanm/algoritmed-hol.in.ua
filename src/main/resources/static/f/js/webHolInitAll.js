@@ -13,9 +13,16 @@ function initAll ($http, $scope){
 
 	$scope.pagePath = window.location.href.split('?')[0].split('/').splice(4);//.reverse();
 	if($scope.pagePath.last() && $scope.pagePath.last().length==0) $scope.pagePath.pop();
+
 	$scope.prevousPath = function(){
-		if($scope.pagePath.length<=1)
+		if($scope.pagePath.length==1){
+			if($scope.config){
+				return '/v/' + $scope.config[$scope.pagePath[0]].parent;
+			}
+		}else
+		if($scope.pagePath.length<1){
 			return '/';
+		}
 		var pp = $scope.pagePath.slice();
 		pp.pop();
 		var previousUrl = '/v/'+pp.toString().replace(',','/');
@@ -61,6 +68,18 @@ function initAll ($http, $scope){
 			if(o)
 				o.idx.push(index);
 		});
+	}
+
+	if('pharmarest' == $scope.pagePath.last()){
+		var url = '/r/testDb1Medicamenten';
+		$http.get(url).then(
+			function(response) {
+				$scope.pharmarest = response.data;
+				console.log($scope.pharmarest);
+			}, function(response) {
+				console.error(response);
+			}
+		);
 	}
 
 	if('personal' == $scope.pagePath.last()){
@@ -192,4 +211,3 @@ if (!Array.prototype.last){
 		return this[this.length - 3];
 	}
 }
-

@@ -1,0 +1,21 @@
+<div class="w3-container">
+	<table class="w3-table">
+		<caption>
+			<h2>{{config['pharmarest'].shortName}}</h2>
+
+		</caption>
+		<thead>
+			<tr>
+				<th>Медикамент</th>
+				<th>
+					{{pharmarest.db1Test1Medicamenten[0].medicament_rest_date}}</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="p in pharmarest.db1Test1Medicamenten">
+				<td>{{p.medicament_name}}</td>
+				<td>{{p.medicament_rest}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

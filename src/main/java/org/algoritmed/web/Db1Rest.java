@@ -21,7 +21,6 @@ public class Db1Rest {
 	JdbcTemplate db1JdbcTemplate;
 	
 	private @Value("${sql.db1.testDb1}") String sqlDb1TestDb1;
-
 	@GetMapping("/r/testDb1")
 	public  @ResponseBody Map<String, Object> testDb1() {
 		Map<String,Object> map = new HashMap<>();
