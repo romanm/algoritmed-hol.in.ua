@@ -1,0 +1,14 @@
+<ul class="w3-navbar w3-light-grey">
+	<li ng-repeat="(k,v) in config.department.topMenu"><a
+		ng-class="{'w3-green':k==departmentPart||(!departmentPart&&$index==0)}"
+		href="/v/department/{{departmentName}}{{$index==0?'':('/'+k)}}"> <i
+			ng-if="v.fa" class="fa {{v.fa}}"
+			ng-class="{'w3-text-red':k=='personal'}"></i> {{v.name}}
+	</a></li>
+	<li ng-if="principal.principal.name" class="w3-hide-small w3-right"><a
+		ng-click="editArticle('about')"
+		href="#" class="w3-hover-red" title="Редагувати"> <i
+			class="fa fa-edit"></i>
+	</a></li>
+
+</ul>

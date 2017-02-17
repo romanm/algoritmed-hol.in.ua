@@ -1,0 +1,19 @@
+<div>edit mode</div>
+<ul>
+	<li ng-repeat="x1 in departmentInfo.docBlock">{{x1.h2}}
+	<ul>
+		<li ng-repeat="x2 in x1.docBlock">
+		<div ng-if="x2.p">
+			p
+		</div>
+		</li>
+	</ul>
+	</li>
+</ul>
+<!-- 
+<ul>
+	<li ng-repeat="x1 in departmentInfo.docBlock">{{x1.h2}} <span
+		ng-repeat="x2 in x1.docBlock"><span ng-if="x2.p"> p </span> </span>
+	</li>
+</ul>
+ -->

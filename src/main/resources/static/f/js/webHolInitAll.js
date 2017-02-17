@@ -2,6 +2,15 @@ function initAll ($http, $scope){
 	console.log('----initAll---------------');
 	$scope.generalInfo = {};
 	$scope.param = parameters;
+
+	$scope.editArticle = function(editMode){
+		console.log(editMode);
+		if($scope.editMode != editMode)
+			$scope.editMode = editMode;
+		else
+			$scope.editMode = '-';
+	}
+
 	$scope.pagePath = window.location.href.split('?')[0].split('/').splice(4);//.reverse();
 	if($scope.pagePath.last() && $scope.pagePath.last().length==0) $scope.pagePath.pop();
 	$scope.prevousPath = function(){
@@ -97,6 +106,7 @@ function initAll ($http, $scope){
 		$http.get(url).then(
 			function(response) {
 				$scope.departmentInfo = response.data;
+				console.log($scope.departmentInfo);
 			}, function(response) {
 				console.error(response);
 			}
@@ -182,3 +192,4 @@ if (!Array.prototype.last){
 		return this[this.length - 3];
 	}
 }
+

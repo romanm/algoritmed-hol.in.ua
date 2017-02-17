@@ -2,74 +2,20 @@
 	<p></p>
 
 	<!-- Всі відділення -->
-	<div ng-if="!departmentInfo" class="w3-row">
-		<div class="w3-container w3-twothird">
-
-			<div class="w3-container" ng-include="'/f/hol.in.ua/ng/department-accordion.html'">
-			</div>
-
-		</div>
-		<div class="w3-container w3-third  w3-card-2">
-			<h2>Всі відділення</h2>
-			<ul>
-				<li ng-repeat="d in vidsAll.departments"><a
-					href="/v/department/{{d.vUrl}}"> {{d.name}} </a></li>
-			</ul>
-		</div>
-	</div>
+	<div ng-if="!departmentInfo" class="w3-row"
+		ng-include="'/f/hol.in.ua/ng/departmentAllPage.html'"></div>
 	<!-- Одне відділенн -->
 	<div ng-if="departmentInfo">
-		<ul class="w3-navbar w3-light-grey">
-			<li ng-repeat="(k,v) in config.department.topMenu"><a
-				ng-class="{'w3-green':k==departmentPart||(!departmentPart&&$index==0)}"
-				href="/v/department/{{departmentName}}{{$index==0?'':('/'+k)}}">
-					<i ng-if="v.fa" class="fa {{v.fa}}"
-					ng-class="{'w3-text-red':k=='personal'}"></i> {{v.name}}
-			</a></li>
-		</ul>
+		<div ng-include="'/f/hol.in.ua/ng/menuDepartment.html'"></div>
 		<!-- частина відділення -->
 		<div
 			ng-include="'/f/hol.in.ua/ng/departmentPart-'+departmentPart+'.html'"></div>
 
 		<!-- про відділення -->
 		<div ng-if="!departmentPart || 'about' == departmentPart">
-			<div ng-if="param.archive" class="w3-container  w3-card-2  w3-yellow">
-				<b> Архів: </b> {{param.archive}}
-			</div>
-			<div ng-repeat="x1 in departmentInfo.docBlock">
-
-				<div class="w3-row" ng-if="$index==0">
-					<div class="w3-col l8 w3-container">
-						<h2 ng-if="x1.h2">{{x1.h2}}</h2>
-						<div ng-repeat="x2 in x1.docBlock">
-							<p ng-if="x2.p" ng-bind-html="x2.p"></p>
-						</div>
-					</div>
-					<div class="w3-col l4 w3-container">
-						<div class="w3-card-4">
-							<img
-								src="/f/hol.in.ua/model/img/spk/{{departmentInfo.docBlock[1].spkPersonal.personal_url}}.jpg"
-								alt="Person" />
-							<div class="w3-container">
-								<h4>
-									<b>{{departmentInfo.docBlock[1].h2}}</b>
-								</h4>
-								<div>{{departmentInfo.docBlock[1].chief}}</div>
-								<i
-									ng-repeat="t in departmentInfo.docBlock[1].spkPersonal.titles">
-									{{t}} {{$first?'':','}} </i>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div ng-if="$index>1">
-					<h2 ng-if="x1.h2">{{x1.h2}}</h2>
-					<div ng-repeat="x2 in x1.docBlock">
-						<p ng-if="x2.p" ng-bind-html="x2.p"></p>
-					</div>
-				</div>
-			</div>
+			<div ng-include="'/f/hol.in.ua/ng/departmentAboutEdit.html'"
+				ng-if="editMode == 'about'"></div>
+			<div ng-include="'/f/hol.in.ua/ng/departmentOnePage.html'"></div>
 		</div>
 
 	</div>

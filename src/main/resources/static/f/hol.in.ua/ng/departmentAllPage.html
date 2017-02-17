@@ -1,0 +1,13 @@
+<div class="w3-container w3-twothird">
+
+	<div class="w3-container"
+		ng-include="'/f/hol.in.ua/ng/department-accordion.html'"></div>
+
+</div>
+<div class="w3-container w3-third  w3-card-2">
+	<h2>Всі відділення</h2>
+	<ul>
+		<li ng-repeat="d in vidsAll.departments"><a
+			href="/v/department/{{d.vUrl}}"> {{d.name}} </a></li>
+	</ul>
+</div>

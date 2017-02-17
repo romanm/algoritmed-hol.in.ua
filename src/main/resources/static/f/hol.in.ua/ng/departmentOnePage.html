@@ -1,0 +1,38 @@
+<div ng-if="param.archive" class="w3-container  w3-card-2  w3-yellow">
+	<b> Архів: </b> {{param.archive}}
+</div>
+
+<div ng-repeat="x1 in departmentInfo.docBlock">
+
+	<div class="w3-row" ng-if="$index==0">
+		<div class="w3-col l8 w3-container">
+			<h2 ng-if="x1.h2">{{x1.h2}}</h2>
+			<div ng-repeat="x2 in x1.docBlock">
+				<p ng-if="x2.p" ng-bind-html="x2.p"></p>
+			</div>
+		</div>
+		<div class="w3-col l4 w3-container">
+			<div class="w3-card-4">
+				<img
+					src="/f/hol.in.ua/model/img/spk/{{departmentInfo.docBlock[1].spkPersonal.personal_url}}.jpg"
+					alt="Person" />
+				<div class="w3-container">
+					<h4>
+						<b>{{departmentInfo.docBlock[1].h2}}</b>
+					</h4>
+					<div>{{departmentInfo.docBlock[1].chief}}</div>
+					<i ng-repeat="t in departmentInfo.docBlock[1].spkPersonal.titles">
+						{{t}} {{$first?'':','}} </i>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div ng-if="$index>1">
+		<h2 ng-if="x1.h2">{{x1.h2}}</h2>
+		<div ng-repeat="x2 in x1.docBlock">
+			<p ng-if="x2.p" ng-bind-html="x2.p"></p>
+		</div>
+	</div>
+
+</div>

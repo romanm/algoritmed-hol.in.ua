@@ -33,4 +33,16 @@ public class Db1Rest {
 		return map;
 	}
 
+	private @Value("${sql.db1.testDb1Medicamenten}") String sqlDb1TestDb1Medicamenten;
+	@GetMapping("/r/testDb1Medicamenten")
+	public  @ResponseBody Map<String, Object> testDb1Medicamenten() {
+		Map<String,Object> map = new HashMap<>();
+		map.put("url", "/r/testDb1Medicamenten");
+		List<Map<String, Object>> db1Test1Medicamenten = db1JdbcTemplate.queryForList(sqlDb1TestDb1Medicamenten);
+		map.put("db1Test1Medicamenten", db1Test1Medicamenten);
+		logger.info(" --------- \n"
+				+ "/r/testDb1" + map);
+		return map;
+	}
+
 }
