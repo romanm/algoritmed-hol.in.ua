@@ -31,18 +31,53 @@
 				<header class="w3-container w3-light-grey">
 					<a href="/v/department"> Відділення</a>
 				</header>
+				<ul class="w3-ul">
+					<li><span class="w3-tiny">20.02.2017</span> Структурний аналіз
+						роботи <a href="/v/department/neurosurgery"> нейрохірургічного
+							відділення </a> Хмельницької обласної лікарні за 2016 рік</li>
+					<li><span class="w3-tiny">19.02.2017</span> Аналіз роботи <a
+						href="/v/department/urology"> урологічного відділення </a>
+						Хмельницької обласної лікарні за 12 міс. 2016 року</li>
+					<li>Слідкуйте за оновленням результатів і показників роботи
+						інших відділеннь за 2016 р. на сайті Хмельницької обласної
+						лікарні, протягом дня і вечора.</li>
+					<li>Аналіз роботи <a href="/v/department/cardiacsurgery">
+							відділення кардіо- та ендоваскулярної хірургії </a> за 2016 рік.
+					</li>
+					<!-- 
+					<li>АНАЛІЗ роботи <a href="/v/department/orthopaedic">
+							ортопедичного відділення </a> Хмельницької обласної лікарні за 2016
+						рік
+					</li>
+					 -->
+				</ul>
+				<!-- 
 				<p>&nbsp;</p>
 				<p>Слайд-шоу обраних даних з показників відділень</p>
 				<p>&nbsp;</p>
 				<p>&nbsp;</p>
+				 -->
 			</div>
 			<p></p>
 			<div class="w3-card-2">
 				<header class="w3-container w3-light-grey">Новини</header>
+				<ul class="w3-ul">
+					<li>Слідуючи прикладу <span class="w3-tooltip"> <b>
+								лікарень Одеси </b><span class="w3-text w3-tag"><b> <a
+									target="_blank" href="http://liky.odesa.ua/">Безкоштовні
+										ліки</a></b></span>
+					</span> і згідно розпорядження МОЗ від 07/02/2017 № 04.01.12/2975 з метою
+						виконання статті 5 Закону України "Про доступ до публічної
+						інформації". На сайті налагоджений доступ до <a
+						href="/v/pharmarest"> залишку бюджетних ліків </a> .
+					</li>
+				</ul>
+				<!-- 
 				<p>&nbsp;</p>
 				<p>Стрічка обраних даних з новин та корисної інформації відділень хронологічно вертикально</p>
 				<p>&nbsp;</p>
 				<p>&nbsp;</p>
+				 -->
 			</div>
 		</div>
 		<div class="w3-quarter">
@@ -50,7 +85,9 @@
 				<header class="w3-container w3-light-grey">
 					<a href="/v/about"> Про лікарню</a>
 				</header>
-				<p>&nbsp;</p>
+				<a href="/v/pharmarest">{{config.pharmarest.shortName}}</a>
+				<p>
+				</p>
 			</div>
 			<p></p>
 			<div ng-include="'/f/hol.in.ua/ng/card-reform.html'"></div>
@@ -69,9 +106,8 @@
 	<div class="w3-row-padding w3-margin-top">
 		<div class="w3-third">
 			<div class="w3-card-2">
-	site map
+	Мапа сайту
 				<div ng-init="pageKey = 'holhome'">
-					{{pageKey}}
 					<ul ng-if="config.hasChild('parent', pageKey)"
 						ng-include="'/f/hol.in.ua/ng/siteMapLi.html'"></ul>
 				</div>

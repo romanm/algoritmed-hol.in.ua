@@ -22,7 +22,7 @@ public class Hol1Rest {
 	@Autowired	ReadJsonFromFile readJsonFromFile;
 	
 	@GetMapping("/r/principal")
-	public  @ResponseBody Map<String, Object> principal(Principal principal) {
+	public @ResponseBody Map<String, Object> principal(Principal principal) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("principal", principal);
 		logger.info(" --------- \n"
@@ -31,7 +31,7 @@ public class Hol1Rest {
 	}
 
 	@GetMapping("/r/testUUID")
-	public  @ResponseBody Map<String, Object> testUUI(Principal principal) {
+	public @ResponseBody Map<String, Object> testUUI(Principal principal) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		UUID uuid = addUuid(map);
 		map.put("version", uuid.version());
@@ -82,7 +82,7 @@ public class Hol1Rest {
 				);
 		return "hol.in.ua2";
 	}
-	
+
 	@GetMapping("/v/department/{department}")
 	public String viewDepartmentPage(@PathVariable String department, Model model) {
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -117,8 +117,6 @@ public class Hol1Rest {
 		String th_template = (String) getModelAttribute(page1, "th_template");
 		return th_template;
 	}
-	
-	
 
 	private void setModelAtribute(Model model, String page1, String attribute) {
 		Object ngController = getModelAttribute(page1, attribute);
@@ -147,7 +145,7 @@ public class Hol1Rest {
 	}
 
 	@GetMapping("/r/testReadConfigFile")
-	public  @ResponseBody Map<String, Object> testReadConfigFile() {
+	public @ResponseBody Map<String, Object> testReadConfigFile() {
 		Map<String, Object> map = new HashMap<String, Object>();
 		logger.info(" --------- \n"
 				+ "/r/testReadConfigFile"

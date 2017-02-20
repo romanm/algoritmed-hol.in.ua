@@ -89,7 +89,7 @@
 ,"pharmarest":{
 	"ng_controller":"HolWebCtrl as holWebCtrl"
 	,"ng_app":"holWebApp"
-	,"th_template":"hol.in.ua2"
+	,"th_template":"hol.in.ua2jq"
 	,"ng_template":"'/f/hol.in.ua/pharmarest.html'"
 	,"shortName":"Залишок бюджетних ліків"
 	,"fa":"fa-hospital-o"

@@ -71,6 +71,14 @@ function initAll ($http, $scope){
 	}
 
 	if('pharmarest' == $scope.pagePath.last()){
+
+		$scope.fileToUpload = {};
+
+		$scope.uploadFile = function(){
+			console.log('--------uploadFile-------');
+			console.log($scope.fileToUpload);
+		}
+
 		var url = '/r/testDb1Medicamenten';
 		$http.get(url).then(
 			function(response) {
@@ -97,7 +105,8 @@ function initAll ($http, $scope){
 	if('department' == $scope.pagePath.last()
 	|| 'patient' == $scope.pagePath.last()
 	){
-		var url = '/f/hol.in.ua/model/vidsAll.json.js';
+		var url = '/f/hol.in.ua/model/vidsAll2.json.js';
+		//var url = '/f/hol.in.ua/model/vidsAll.json.js';
 		$http.get(url).then(
 			function(response) {
 				$scope.vidsAll = response.data;
@@ -116,6 +125,18 @@ function initAll ($http, $scope){
 			$scope.departmentName = $scope.pagePath.forLast();
 			$scope.departmentPart = $scope.pagePath.last();
 		}
+		var urlActually = '/f/hol.in.ua/model/department/actually/' + $scope.departmentName + '.html';
+		console.log(urlActually);
+		$http.get(urlActually).then(
+				function(response) {
+					console.log(response.status == 200);
+					if(response.status == 200){
+						$scope.departmentActually = true;
+					}
+				}, function(response) {
+					console.error(response);
+				}
+		);
 		var url = '/f/hol.in.ua/model/department/v.' + $scope.departmentName + '.json.js';
 		console.log(url);
 		if(parameters.archive){
@@ -146,9 +167,11 @@ function initAll ($http, $scope){
 		}
 	);
 
-	$http.get('/f/hol.in.ua/model/generalInfo.json.js').then(
+//	$http.get('/f/hol.in.ua/model/generalInfo.json.js').then(
+	$http.get('/f/hol.in.ua/model/generalInfo2.json.js').then(
 		function(response) {
 			$scope.generalInfo = response.data;
+			console.log($scope.generalInfo);
 		}, function(response) {
 			console.error(response);
 		}

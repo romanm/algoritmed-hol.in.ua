@@ -17,9 +17,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class Db1Rest {
 	private static final Logger logger = LoggerFactory.getLogger(Db1Rest.class);
 
-	@Autowired
-	JdbcTemplate db1JdbcTemplate;
-	
+	@Autowired JdbcTemplate db1JdbcTemplate;
+
 	private @Value("${sql.db1.testDb1}") String sqlDb1TestDb1;
 	@GetMapping("/r/testDb1")
 	public  @ResponseBody Map<String, Object> testDb1() {

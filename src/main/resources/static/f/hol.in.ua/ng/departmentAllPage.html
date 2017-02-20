@@ -8,6 +8,8 @@
 	<h2>Всі відділення</h2>
 	<ul>
 		<li ng-repeat="d in vidsAll.departments"><a
-			href="/v/department/{{d.vUrl}}"> {{d.name}} </a></li>
+			href="/v/department/{{d.vUrl}}"> <span class="w3-text-red"
+				ng-if="d.new2016"> {{d.new2016}} </span> {{d.name}}
+		</a></li>
 	</ul>
 </div>

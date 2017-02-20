@@ -11,11 +11,18 @@
 		<div
 			ng-include="'/f/hol.in.ua/ng/departmentPart-'+departmentPart+'.html'"></div>
 
-		<!-- про відділення -->
 		<div ng-if="!departmentPart || 'about' == departmentPart">
+			<!-- актуальна html частина -->
+			<div
+			ng-if="!param.archive"
+				ng-include="'/f/hol.in.ua/model/department/actually/'+departmentName+'.html'"></div>
+			<!-- про відділення -->
+			<!-- 
 			<div ng-include="'/f/hol.in.ua/ng/departmentAboutEdit.html'"
 				ng-if="editMode == 'about'"></div>
-			<div ng-include="'/f/hol.in.ua/ng/departmentOnePage.html'"></div>
+ -->
+			<div ng-if="!departmentActually || param.archive"
+				ng-include="'/f/hol.in.ua/ng/departmentOnePage.html'"></div>
 		</div>
 
 	</div>

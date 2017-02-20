@@ -1,14 +1,30 @@
 <div class="w3-container">
-	<table class="w3-table">
+	<!-- 
+	<div class="w3-panel w3-leftbar w3-pale-yellow w3-serif">
+ -->
+	<div class="w3-panel w3-leftbar w3-pale-yellow w3-serif">
+		<p>
+			<i>Сторінка оновлюється регулярним переносом даних з запиту до
+				складу лікарняної аптеки, 1С-бухгалтерія.</i>
+		<div ng-if="principal.principal.name">
+			<form>
+				<label for="upload-file-input"> Загрузити файл з новими
+					даними :</label> <input type="file" ng-model="fileToUpload"
+					class="w3-btn w3-white w3-border" name="uploadfile" accept="*" />
+				<button ng-click="uploadFile()">OK</button>
+				<br /> <span id="upload-file-message"></span>
+			</form>
+		</div>
+		</p>
+	</div>
+	<table class="w3-table w3-striped w3-border w3-hoverable">
 		<caption>
 			<h2>{{config['pharmarest'].shortName}}</h2>
-
 		</caption>
 		<thead>
-			<tr>
+			<tr class="w3-green">
 				<th>Медикамент</th>
-				<th>
-					{{pharmarest.db1Test1Medicamenten[0].medicament_rest_date}}</th>
+				<th>{{pharmarest.db1Test1Medicamenten[0].medicament_rest_date}}</th>
 			</tr>
 		</thead>
 		<tbody>
