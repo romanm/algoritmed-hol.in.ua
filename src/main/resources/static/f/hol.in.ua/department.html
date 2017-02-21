@@ -17,12 +17,10 @@
 			ng-if="!param.archive"
 				ng-include="'/f/hol.in.ua/model/department/actually/'+departmentName+'.html'"></div>
 			<!-- про відділення -->
-			<!-- 
-			<div ng-include="'/f/hol.in.ua/ng/departmentAboutEdit.html'"
-				ng-if="editMode == 'about'"></div>
- -->
 			<div ng-if="!departmentActually || param.archive"
 				ng-include="'/f/hol.in.ua/ng/departmentOnePage.html'"></div>
+			<div ng-if="param.archive.indexOf('html')>0"
+				ng-include="'/f/hol.in.ua/model/department/archive/'+param.archive"></div>
 		</div>
 
 	</div>

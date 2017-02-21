@@ -25,12 +25,14 @@
 			<tr class="w3-green">
 				<th>Медикамент</th>
 				<th>{{pharmarest.db1Test1Medicamenten[0].medicament_rest_date}}</th>
+				<th>Потреби</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr ng-repeat="p in pharmarest.db1Test1Medicamenten">
 				<td>{{p.medicament_name}}</td>
 				<td>{{p.medicament_rest}}</td>
+				<td>{{medicamentNeed(p)}}</td>
 			</tr>
 		</tbody>
 	</table>

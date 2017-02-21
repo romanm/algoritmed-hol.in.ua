@@ -79,6 +79,19 @@ function initAll ($http, $scope){
 			console.log($scope.fileToUpload);
 		}
 
+		var needConstant = 20;
+		$scope.medicamentNeed = function(p){
+			var rest = p.medicament_rest;
+			if(rest==0)
+				rest = 1;
+			var nc = needConstant;
+			if(rest>100)
+				nc /= 5;
+			var n = nc *  rest * Math.random();
+			n = n.toFixed(0);
+			return n;
+		}
+
 		var url = '/r/testDb1Medicamenten';
 		$http.get(url).then(
 			function(response) {
@@ -137,20 +150,30 @@ function initAll ($http, $scope){
 					console.error(response);
 				}
 		);
+		var readDepartmentData = function(url){
+			$http.get(url).then(
+				function(response) {
+					$scope.departmentInfo = response.data;
+//				console.log($scope.departmentInfo);
+				}, function(response) {
+					console.error(response);
+				}
+			);
+		}
 		var url = '/f/hol.in.ua/model/department/v.' + $scope.departmentName + '.json.js';
 		console.log(url);
 		if(parameters.archive){
 			url = '/f/hol.in.ua/model/department/archive/' + parameters.archive;
-		}
-		console.log(url);
-		$http.get(url).then(
-			function(response) {
-				$scope.departmentInfo = response.data;
-				console.log($scope.departmentInfo);
-			}, function(response) {
-				console.error(response);
+			console.log(url);
+			console.log(parameters.archive.indexOf('html'));
+			if(parameters.archive.indexOf('html')>0){
+				readDepartmentData(url);
+			}else{
+				readDepartmentData(url);
 			}
-		);
+		}else{
+			readDepartmentData(url);
+		}
 	}
 
 	$http.get('/f/config/hol1.algoritmed.site.config.json').then(
