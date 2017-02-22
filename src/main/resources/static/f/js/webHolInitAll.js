@@ -85,9 +85,12 @@ function initAll ($http, $scope){
 			if(rest==0)
 				rest = 1;
 			var nc = needConstant;
-			if(rest>100)
-				nc /= 5;
+//			if(rest>100)
+//				nc /= 10;
 			var n = nc *  rest * Math.random();
+			while (n>200) {
+				n/=2;
+			}
 			n = n.toFixed(0);
 			return n;
 		}
