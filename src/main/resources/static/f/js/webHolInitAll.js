@@ -71,7 +71,6 @@ function initAll ($http, $scope){
 	}
 
 	if('pharmarest' == $scope.pagePath.last()){
-
 		$scope.fileToUpload = {};
 
 		$scope.uploadFile = function(){
@@ -87,11 +86,21 @@ function initAll ($http, $scope){
 			var nc = needConstant;
 //			if(rest>100)
 //				nc /= 10;
-			var n = nc *  rest * Math.random();
+			var n = nc * rest;
+			/*
+			n = window.Math.floor((window.Math.random() * n) + 1); 
+			n = n+'-'
+			console.log(window.Math.random());
+			console.log(nc + '*' + rest + '*' + Math.random() + '=' +n);
+			n=(n+'-').subString(0,2);
+			n=n.toFixed(0);
 			while (n>200) {
 				n/=2;
 			}
 			n = n.toFixed(0);
+			return 2.3;
+			n = window.Math.floor((window.Math.random() * 6) + 1); 
+			 * */
 			return n;
 		}
 
@@ -104,6 +113,7 @@ function initAll ($http, $scope){
 				console.error(response);
 			}
 		);
+
 	}
 
 	if('personal' == $scope.pagePath.last()){
@@ -203,7 +213,6 @@ function initAll ($http, $scope){
 		}
 	);
 
-	
 	$http.get('/r/principal').then(
 		function(response) {
 			$scope.principal = response.data;
@@ -212,7 +221,7 @@ function initAll ($http, $scope){
 			console.error(response);
 		}
 	);
-	
+
 	$scope.thisPageName = function(){
 		return $scope.pagePath.last();
 	}

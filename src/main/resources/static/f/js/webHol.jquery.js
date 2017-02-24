@@ -27,3 +27,4 @@
               "File not uploaded (perhaps it's too much big)");
         }
       });
+    }

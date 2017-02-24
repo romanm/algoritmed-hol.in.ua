@@ -1,5 +1,7 @@
 package org.algoritmed.web;
 
+import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
+
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -8,8 +10,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import org.algoritmed.web.util.ExcelBasic;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,56 +30,33 @@ public class FileUploadRest {
 	private static final Logger logger = LoggerFactory.getLogger(FileUploadRest.class);
 	private @Value("${config.uploadedFilesDirectory}") String uploadedFilesDirectory;
 
+	@Autowired private ExcelBasic excelService;
+
 	@PostMapping("/uploadFile2")
 	public String handleFileUpload(@RequestParam("file") MultipartFile file,
 			RedirectAttributes redirectAttributes) {
 
 		logger.info("--------------------\n"
 				+ "/uploadFile2 \n"
-				+ uploadedFilesDirectory
-				+ "\n"
 				+ file);
 
-/*
+		String originalFilename = file.getOriginalFilename();
+		Path resolve = Paths.get(uploadedFilesDirectory).resolve(originalFilename);
 		try {
-			// Get the filename and build the local file path
-			String filename = file.getOriginalFilename();
-			String filepath = Paths.get(uploadedFilesDirectory, filename).toString();
-
-			// Save the file locally
-			BufferedOutputStream stream =
-					new BufferedOutputStream(new FileOutputStream(new File(filepath)));
-			stream.write(file.getBytes());
-			stream.close();
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
- * */
-
-		Path path = Paths.get(uploadedFilesDirectory);
-System.out.println(path);
-
-		try {
-			Files.copy(file.getInputStream(), path.resolve(file.getOriginalFilename()));
+			Files.copy(file.getInputStream(), resolve, REPLACE_EXISTING);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
+		HSSFWorkbook readExcel = excelService.readExcel(originalFilename);
+
+		logger.info("--------------------\n"
+				+ "/uploadFile2 \n"
+				+ readExcel
+				);
 		
-		/*
-
-		storageService.store(file);
-		redirectAttributes.addFlashAttribute("message",
-				"You successfully uploaded " + file.getOriginalFilename() + "!");
- * */
-
 		return "redirect:/";
 	}
-/*
-	@ExceptionHandler(StorageFileNotFoundException.class)
-	public ResponseEntity handleStorageFileNotFound(StorageFileNotFoundException exc) {
-		return ResponseEntity.notFound().build();
-	}
- * */
 
 	@PostMapping(value = "/uploadFile")
 	public @ResponseBody ResponseEntity<?> uploadFile(

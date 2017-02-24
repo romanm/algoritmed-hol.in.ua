@@ -26,7 +26,7 @@ public class Hol1Rest {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("principal", principal);
 		logger.info(" --------- \n"
-				+ "/v/testUUI \n" + map);
+				+ "/v/principal \n" + map);
 		return map;
 	}
 

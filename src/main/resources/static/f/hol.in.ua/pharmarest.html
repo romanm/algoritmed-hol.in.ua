@@ -6,29 +6,13 @@
 		<p>
 			<i>Сторінка оновлюється регулярним переносом даних з запиту до
 				складу лікарняної аптеки, 1С-бухгалтерія.</i>
-		
 		<div ng-if="principal.principal.name">
-			<div>
-				<form method="POST" enctype="multipart/form-data" action="/uploadFile2">
-					<table>
-						<tr>
-							<td>File to upload:</td>
-							<td><input type="file" name="file" /></td>
-						</tr>
-						<tr>
-							<td></td>
-							<td><input type="submit" value="Upload" /></td>
-						</tr>
-					</table>
-				</form>
-			</div>
-
-			<form>
+			<form method="POST" enctype="multipart/form-data"
+				action="/uploadFile2">
 				<label for="upload-file-input"> Загрузити файл з новими
-					даними :</label> <input type="file" ng-model="fileToUpload"
-					class="w3-btn w3-white w3-border" name="uploadfile" accept="*" />
-				<button ng-click="uploadFile()">OK</button>
-				<br /> <span id="upload-file-message"></span>
+					даними :</label> <input type="file" class="w3-btn w3-white w3-border"
+					name="file" accept="*" />
+				<button type="submit">OK</button>
 			</form>
 		</div>
 		</p>
@@ -48,7 +32,7 @@
 			<tr ng-repeat="p in pharmarest.db1Test1Medicamenten">
 				<td>{{p.medicament_name}}</td>
 				<td>{{p.medicament_rest}}</td>
-				<td>{{medicamentNeed(p)}}</td>
+				<td>{{p.medicamentNeed}}</td>
 			</tr>
 		</tbody>
 	</table>
