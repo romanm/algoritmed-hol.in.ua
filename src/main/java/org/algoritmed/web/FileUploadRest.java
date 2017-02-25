@@ -3,8 +3,10 @@ package org.algoritmed.web;
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,6 +14,7 @@ import java.nio.file.Paths;
 
 import org.algoritmed.web.util.ExcelBasic;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +35,8 @@ public class FileUploadRest {
 
 	@Autowired private ExcelBasic excelService;
 
-	@PostMapping("/uploadFile2")
+//	@PostMapping("/uploadFile2")
+	@PostMapping("/r/uploadFile2")
 	public String handleFileUpload(@RequestParam("file") MultipartFile file,
 			RedirectAttributes redirectAttributes) {
 
@@ -48,14 +52,45 @@ public class FileUploadRest {
 			e.printStackTrace();
 		}
 
-		HSSFWorkbook readExcel = excelService.readExcel(originalFilename);
-
-		logger.info("--------------------\n"
+		XSSFWorkbook readExcel = excelService.readExcel(originalFilename);
+		logger.info("-----------\n"
+				+ "-------\n"
+				+ "--\n"
 				+ "/uploadFile2 \n"
 				+ readExcel
 				);
+
+		excelService.pharmaC1ToDb(readExcel);
+
+//		readTxt(originalFilename);
+
 		
 		return "redirect:/";
+	}
+
+	public void readTxt(String fileName) {
+		Path resolve = Paths.get(uploadedFilesDirectory).resolve(fileName);
+		System.out.println(resolve);
+		try (BufferedReader br
+				= new BufferedReader(new FileReader(resolve.toString()))) {
+			int i = 0;
+			String thisLine;
+			while ((thisLine = br.readLine()) != null) {
+				if(i<4) {
+					System.out.println(i + " -- "+thisLine);
+					String[] split = thisLine.split("\\t");
+					System.out.println(thisLine.split("\\t").length);
+					System.out.println(thisLine.split("\t").length);
+					if(split.length>0){
+//						System.out.println(split.toString());
+//						System.out.println(split[2]);
+					}
+				}
+				i++;
+			}
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@PostMapping(value = "/uploadFile")

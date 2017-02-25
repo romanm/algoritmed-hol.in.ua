@@ -88,6 +88,7 @@ function initAll ($http, $scope){
 //				nc /= 10;
 			var n = nc * rest;
 			/*
+			 * Напрямок закритий. Angular має проблему з random()
 			n = window.Math.floor((window.Math.random() * n) + 1); 
 			n = n+'-'
 			console.log(window.Math.random());

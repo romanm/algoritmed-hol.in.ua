@@ -6,9 +6,12 @@
 		<p>
 			<i>Сторінка оновлюється регулярним переносом даних з запиту до
 				складу лікарняної аптеки, 1С-бухгалтерія.</i>
-		<div ng-if="principal.principal.name">
+		<div ng-if="true || principal.principal.name">
 			<form method="POST" enctype="multipart/form-data"
+				action="/r/uploadFile2">
+				<!-- 
 				action="/uploadFile2">
+				 -->
 				<label for="upload-file-input"> Загрузити файл з новими
 					даними :</label> <input type="file" class="w3-btn w3-white w3-border"
 					name="file" accept="*" />
