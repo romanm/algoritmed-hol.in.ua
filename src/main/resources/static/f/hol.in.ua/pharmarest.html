@@ -1,7 +1,4 @@
 <div class="w3-container">
-	<!-- 
-	<div class="w3-panel w3-leftbar w3-pale-yellow w3-serif">
- -->
 	<div class="w3-panel w3-leftbar w3-pale-yellow w3-serif">
 		<p>
 			<i>Сторінка оновлюється регулярним переносом даних з запиту до
@@ -20,23 +17,47 @@
 		</div>
 		</p>
 	</div>
-	<table class="w3-table w3-striped w3-border w3-hoverable">
-		<caption>
-			<h2>{{config['pharmarest'].shortName}}</h2>
-		</caption>
-		<thead>
-			<tr class="w3-green">
-				<th>Медикамент</th>
-				<th>{{pharmarest.db1Test1Medicamenten[0].medicament_rest_date}}</th>
-				<th>Потреби</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="p in pharmarest.db1Test1Medicamenten">
-				<td>{{p.medicament_name}}</td>
-				<td>{{p.medicament_rest}}</td>
-				<td>{{p.medicamentNeed}}</td>
-			</tr>
-		</tbody>
-	</table>
+
+	<div class="w3-row-padding w3-margin-top">
+		<div class="w3-threequarter">
+			<div class="w3-card-2">
+				<!-- 
+	<div class="w3-panel w3-leftbar w3-pale-yellow w3-serif">
+ -->
+				<table class="w3-table w3-striped w3-border w3-hoverable">
+					<caption>
+						<h2>{{config['pharmarest'].shortName}}</h2>
+					</caption>
+					<thead>
+						<tr class="w3-green">
+							<th>Медикамент</th>
+							<th>{{pharmarest.db1Test1Medicamenten[0].medicament_rest_date}}</th>
+							<th>Потреби</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="p in pharmarest.db1Test1Medicamenten">
+							<td>{{p.medicament_name}}</td>
+							<td>{{p.medicament_rest}}</td>
+							<td>{{p.medicamentNeed}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="w3-quarter">
+			<div class="w3-card-2">
+				<header class="w3-tiny w3-container w3-light-grey">Загальний
+					залишок медикаментів по датам</header>
+				<table class="w3-table w3-striped w3-border w3-hoverable">
+					<tr ng-repeat="d in pharmarest.allDateDb1MedicamentenList"
+						ng-click="readMedicamentRest(d.medicament_rest_date)">
+						<td>{{d.cnt}}</td>
+						<td>{{d.medicament_rest_date}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
 </div>

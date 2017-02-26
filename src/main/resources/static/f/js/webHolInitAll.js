@@ -105,11 +105,26 @@ function initAll ($http, $scope){
 			return n;
 		}
 
+		$scope.readMedicamentRest = function(data){
+			var url = '/r/readMedicamentRest/' + data;
+			console.log(url);
+			$http.get(url).then(
+				function(response) {
+					$scope.pharmarest.db1Test1Medicamenten = response.data.db1Test1Medicamenten;
+					console.log($scope.pharmarest);
+				}, function(response) {
+					console.error(response);
+				}
+			);
+		}
+
 		var url = '/r/testDb1Medicamenten';
 		$http.get(url).then(
 			function(response) {
 				$scope.pharmarest = response.data;
 				console.log($scope.pharmarest);
+				var lastDate = $scope.pharmarest.allDateDb1MedicamentenList[0].medicament_rest_date
+				$scope.readMedicamentRest(lastDate);
 			}, function(response) {
 				console.error(response);
 			}
