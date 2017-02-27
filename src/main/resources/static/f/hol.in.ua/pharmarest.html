@@ -1,23 +1,32 @@
 <div class="w3-container">
-	<div class="w3-panel w3-leftbar w3-pale-yellow w3-serif">
-		<p>
-			<i>Сторінка оновлюється регулярним переносом даних з запиту до
-				складу лікарняної аптеки, 1С-бухгалтерія.</i>
-		<div ng-if="true || principal.principal.name">
-			<form method="POST" enctype="multipart/form-data"
-				action="/r/uploadFile2">
-				<!-- 
+	<div class="w3-row-padding w3-margin-top">
+		<div class="w3-quarter">
+			<p>
+				<label class="w3-text-grey">Пошук ліків</label> <input
+					ng-model="seekDrug" class="w3-input w3-border" type="text">
+			</p>
+		</div>
+		<div class="w3-threequarter">
+			<div class="w3-panel w3-leftbar w3-pale-yellow w3-serif">
+				<p>
+					<i>Сторінка оновлюється регулярним переносом даних з запиту до
+						складу лікарняної аптеки, 1С-бухгалтерія.</i>
+				<div ng-if="principal.principal.name">
+					<form method="POST" enctype="multipart/form-data"
+						action="/uploadFile2">
+						<!-- 
 				action="/uploadFile2">
 				 -->
-				<label for="upload-file-input"> Загрузити файл з новими
-					даними :</label> <input type="file" class="w3-btn w3-white w3-border"
-					name="file" accept="*" />
-				<button type="submit">OK</button>
-			</form>
+						<label for="upload-file-input"> Загрузити файл з новими
+							даними :</label> <input type="file" class="w3-btn w3-white w3-border"
+							name="file" accept="*" />
+						<button type="submit">OK</button>
+					</form>
+				</div>
+				</p>
+			</div>
 		</div>
-		</p>
 	</div>
-
 	<div class="w3-row-padding w3-margin-top">
 		<div class="w3-threequarter">
 			<div class="w3-card-2">
@@ -36,7 +45,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat="p in pharmarest.db1Test1Medicamenten">
+						<tr ng-repeat="p in pharmarest.db1Test1Medicamenten | filter:seekDrug">
 							<td>{{p.medicament_name}}</td>
 							<td>{{p.medicament_rest}}</td>
 							<td>{{p.medicamentNeed}}</td>
@@ -47,8 +56,8 @@
 		</div>
 		<div class="w3-quarter">
 			<div class="w3-card-2">
-				<header class="w3-tiny w3-container w3-light-grey">Загальний
-					залишок медикаментів по датам</header>
+				<header class="w3-tiny w3-container w3-light-grey">
+					Залишок медикаментів станом на дату</header>
 				<table class="w3-table w3-striped w3-border w3-hoverable">
 					<tr ng-repeat="d in pharmarest.allDateDb1MedicamentenList"
 						ng-click="readMedicamentRest(d.medicament_rest_date)">

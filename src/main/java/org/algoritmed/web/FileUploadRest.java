@@ -34,8 +34,8 @@ public class FileUploadRest {
 
 	@Autowired private ExcelBasic excelService;
 
-//	@PostMapping("/uploadFile2")
-	@PostMapping("/r/uploadFile2")
+//	@PostMapping("/r/uploadFile2")
+	@PostMapping("/uploadFile2")
 	public String handleFileUpload(@RequestParam("file") MultipartFile file,
 			RedirectAttributes redirectAttributes) {
 
@@ -50,6 +50,13 @@ public class FileUploadRest {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
+		/*
+
+libreoffice --headless --convert-to fileToConv20170217.xlsx fileToConv20170217.xls 
+
+ * 
+ * */
 
 		XSSFWorkbook readExcel = excelService.readExcel(originalFilename);
 		logger.info("-----------\n"
