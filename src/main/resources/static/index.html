@@ -16,7 +16,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="/f/w3/w3.css" rel="stylesheet" />
+<!-- 
 <script src="/f/w3/w3.js"></script>
+ -->
 <link href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" />
 <link href="/f/css/hol.in.ua.css" rel="stylesheet" />
@@ -27,7 +29,45 @@
 
 <body>
 	<div ng-include="'/f/hol.in.ua/ng/menuBar-home3.html'"></div>
+	<!-- 
 	<div ng-include="'/f/hol.in.ua/ng/holWebHead.html'"></div>
+	 -->
+
+	<div class="w3-row w3-center w3-card-2">
+	<div class="w3-quarter w3-container">
+		<a 
+		class="w3-right"
+		href="/v/holhome"> <img src="/f/hol.in.ua/image/hol-kh-95.jpg"></a>
+	</div>
+	<div class="w3-half w3-container ">
+		<div ng-if="departmentInfo">
+			<h4>
+				Відділення: <a href="/v/department/{{pagePath[1]}}">
+					{{departmentInfo.name}} </a><br /> <a href="/">
+					Хмельницька обласна лікарня </a>
+			</h4>
+		</div>
+		<div ng-if="!departmentInfo">
+			<h3>
+				<a href="/"> Хмельницька обласна лікарня </a>
+			</h3>
+		</div>
+		<div class="w3-small">вул. Пілотська 1, 29010 м.Хмельницкий,
+			Хмельницька обл.</div>
+		<i class="w3-small w3-right">Ми робимо медицину</i>
+	</div>
+	<div class="w3-quarter w3-container ">
+		<a href="/v/holhome"> <img
+				src="/f/hol.in.ua/image/hol-bg-95.jpg"></a>
+	</div>
+</div>
+<p></p>
+<div class="w3-container  w3-card-2  w3-yellow">
+	Сайт оновлюється. Вибачайте за тимчасові незручності. Старий
+	сайт доступний <a href="http://hol.in.ua:8091{{urlHol2()}}">
+		http://hol.in.ua:8091{{urlHol2()}} </a>
+</div>
+
 	<div ng-include="'/f/hol.in.ua/home2.html'"></div>
 </body>
 
