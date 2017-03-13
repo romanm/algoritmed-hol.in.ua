@@ -5,11 +5,27 @@
 		"v.cardiacsurgery.20170208.json.js"
 		,"v.cardiacsurgery.20170212.json.js"
 	]
+	,"vascularsurgery":[
+		"vascularsurgery.20170313.html"
+		,"v.vascularsurgery.20170313.json.js"
+	]
 	,"orthopaedic":[
 		"orthopaedic.20170221.html"
 		,"v.orthopaedic.20170219.json.js"
-		]
+	]
+	,"thorax":[
+		"v.thorax.20170218.json.js"
+		,"thorax.20170306.html"
+	]
 	,"urology":["v.urology.20170218.json.js"]
+	,"ophthalmology":[
+		"v.ophthalmology.20170306.json.js"
+		,"ophthalmology.20170306.html"
+	]
+	,"ait":[
+		"v.ait.20170301.json.js"
+		,"v.ait.20170301.html"
+	]
 	,"neurosurgery":[
 		"v.neurosurgery.20170220.json.js"
 		,"neurosurgery.20170221.html"

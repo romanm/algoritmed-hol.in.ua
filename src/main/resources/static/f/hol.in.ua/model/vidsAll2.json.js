@@ -9,6 +9,7 @@
   "departments": [
     {
       "vUrl": "ait",
+      "new2016": "оновлено",
       "name": "Анестезіологія та інтенсивна терапія",
       "type": "chirurgiae"
     },
@@ -68,6 +69,7 @@
     },
     {
       "vUrl": "ophthalmology",
+      "new2016": "оновлено",
       "name": "Офтальмологічне",
       "type": "chirurgiae"
     },
@@ -109,11 +111,13 @@
     },
     {
       "vUrl": "vascularsurgery",
+      "new2016": "оновлено",
       "name": "Судинної хірургії",
       "type": "chirurgiae"
     },
     {
       "vUrl": "thorax",
+      "new2016": "оновлено",
       "name": "Торакальної хірургії",
       "type": "chirurgiae"
     },

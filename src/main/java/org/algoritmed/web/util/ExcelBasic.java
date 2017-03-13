@@ -42,7 +42,7 @@ public class ExcelBasic {
 		logger.info("-----------\n"
 				+ "-------\n"
 				+ xssfWorkbook
-				);
+			);
 		int activeSheetIndex = xssfWorkbook.getActiveSheetIndex();
 		XSSFSheet sheetAt = xssfWorkbook.getSheetAt(activeSheetIndex);
 		short topRow = sheetAt.getTopRow();
@@ -50,7 +50,13 @@ public class ExcelBasic {
 		int lastRowNum = sheetAt.getLastRowNum();
 		System.out.println(topRow+"/"+firstRowNum+"/"+lastRowNum);
 		XSSFCell cell = sheetAt.getRow(1).getCell(2);
-		String fromDateString = cell.getStringCellValue().split(" по ")[1].split(" ")[0];
+		String stringCellValue = cell.getStringCellValue();
+		System.out.println("stringCellValue = ");
+		System.out.println(stringCellValue);
+		String[] split = stringCellValue.split(" по ");
+		System.out.println(split.length);
+		System.out.println(split[0]);
+		String fromDateString = split[1].split(" ")[0];
 		String[] ddmmyyStr = fromDateString.split("\\.");
 		DateTime dateTime = new DateTime(Integer.parseInt("20"+ddmmyyStr[2]), Integer.parseInt(ddmmyyStr[1]), Integer.parseInt(ddmmyyStr[0]), 9, 0);
 		System.out.println(dateTime);
