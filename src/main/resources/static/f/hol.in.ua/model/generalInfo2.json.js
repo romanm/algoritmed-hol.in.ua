@@ -22,6 +22,10 @@
 		"v.ophthalmology.20170306.json.js"
 		,"ophthalmology.20170306.html"
 	]
+	,"detox":[
+		"v.detox.20170314.json.js"
+		,"detox.20170314.html"
+	]
 	,"ait":[
 		"v.ait.20170301.json.js"
 		,"v.ait.20170301.html"
