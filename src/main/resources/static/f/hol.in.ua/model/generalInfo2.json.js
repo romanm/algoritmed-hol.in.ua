@@ -5,6 +5,9 @@
 		"v.cardiacsurgery.20170208.json.js"
 		,"v.cardiacsurgery.20170212.json.js"
 	]
+	,"expressLabor":[
+		"expressLabor.20170319.html"
+	]
 	,"vascularsurgery":[
 		"vascularsurgery.20170313.html"
 		,"v.vascularsurgery.20170313.json.js"
@@ -12,6 +15,10 @@
 	,"orthopaedic":[
 		"orthopaedic.20170221.html"
 		,"v.orthopaedic.20170219.json.js"
+	]
+	,"proctology":[
+		"v.proctology.20170319.json.js"
+		,"proctology.20170319.html"
 	]
 	,"thorax":[
 		"v.thorax.20170218.json.js"

@@ -1,18 +1,26 @@
-<div class="w3-row w3-center w3-card-2">
+<div class="w3-row w3-center w3-card-2 w3-small">
 	<div class="w3-quarter w3-container">
-		<a 
-		class="w3-right"
-		href="/v/holhome"> <img src="/f/hol.in.ua/image/hol-kh-95.jpg"></a>
+		<a class="w3-right" href="/v/holhome"> <img
+			src="/f/hol.in.ua/image/hol-kh-95.jpg"></a>
 	</div>
 	<div class="w3-half w3-container ">
+		<!-- 
 		<div ng-if="departmentInfo">
+	 -->
+		<div ng-if="departmentName">
 			<h4>
 				Відділення: <a href="/v/department/{{pagePath[1]}}">
-					{{departmentInfo.name}} </a><br /> <a href="/">
-					Хмельницька обласна лікарня </a>
+
+					{{vidsAll.departments[vidsAllDepIdx[pagePath[1]]].name}} <!-- 
+					{{departmentInfo.name}} 
+				 -->
+				</a><br /> <a href="/"> Хмельницька обласна лікарня </a>
 			</h4>
 		</div>
+		<!-- 
 		<div ng-if="!departmentInfo">
+		 -->
+		<div ng-if="!departmentName">
 			<h3>
 				<a href="/"> Хмельницька обласна лікарня </a>
 			</h3>
@@ -22,12 +30,11 @@
 		<i class="w3-small w3-right">Ми робимо медицину</i>
 	</div>
 	<div class="w3-quarter w3-container ">
-		<a href="/v/holhome"> <img
-				src="/f/hol.in.ua/image/hol-bg-95.jpg"></a>
+		<a href="/v/holhome"> <img src="/f/hol.in.ua/image/hol-bg-95.jpg"></a>
 	</div>
 </div>
 <p></p>
-<div class="w3-container  w3-card-2  w3-yellow">
+<div class="w3-container  w3-card-2  w3-yellow no-print">
 	Сайт оновлюється. Вибачайте за тимчасові незручності. Старий
 	сайт доступний <a href="http://hol.in.ua:8091{{urlHol2()}}">
 		http://hol.in.ua:8091{{urlHol2()}} </a>

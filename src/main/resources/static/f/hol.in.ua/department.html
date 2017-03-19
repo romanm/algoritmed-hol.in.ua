@@ -1,11 +1,16 @@
 <div class="w3-container">
 	<p></p>
-
+	<!-- 
+{{departmentInfo}}/{{!departmentInfo}}
+{{departmentName}}
+	 -->
 	<!-- Всі відділення -->
-	<div ng-if="!departmentInfo" class="w3-row"
+	<div ng-if="!departmentName" class="w3-row"
 		ng-include="'/f/hol.in.ua/ng/departmentAllPage.html'"></div>
-	<!-- Одне відділенн -->
+	<!-- Одне відділенн 
 	<div ng-if="departmentInfo">
+	-->
+	<div ng-if="departmentName">
 		<div ng-include="'/f/hol.in.ua/ng/menuDepartment.html'"></div>
 		<!-- частина відділення -->
 		<div

@@ -58,19 +58,26 @@ function initAll ($http, $scope){
 			'chirurgiae':{'name':'Хірургічні відділення','expand':false, 'idx':[1,2]}
 			,'therapy':{'name':'Терапевтичні відділення','expand':false, 'idx':[3,4]}
 			,'obstetrical-gynecological':{'name':'Акушерсько-гінекологічні','expand':false, 'idx':[5,6]}
+			,'other':{'name':'Інші відділення і підрозділи','expand':false, 'idx':[7,8]}
 		}
 
 		angular.forEach($scope.departmentTypeAccordion, function(o, k){
 			o.idx = [];
 		});
+		$scope.vidsAllDepIdx = {};
 		angular.forEach($scope.vidsAll.departments, function(d, index){
 			var o = $scope.departmentTypeAccordion[d.type];
+			console.log(index);
+			$scope.vidsAllDepIdx[d.vUrl] = index;
 			if(o)
 				o.idx.push(index);
 		});
 	}
 
-	if('pharmarest' == $scope.pagePath.last()){
+	if(
+			'pharmarest' == $scope.pagePath.last()
+||			'phprint' == $scope.pagePath.last()
+			){
 		$scope.fileToUpload = {};
 
 		$scope.uploadFile = function(){
@@ -144,11 +151,14 @@ function initAll ($http, $scope){
 		);
 	}
 
+	console.log($scope.pagePath)
 	if('department' == $scope.pagePath.last()
+	|| 'department' == $scope.pagePath.forLast()
 	|| 'patient' == $scope.pagePath.last()
 	){
 		var url = '/f/hol.in.ua/model/vidsAll2.json.js';
 		//var url = '/f/hol.in.ua/model/vidsAll.json.js';
+		console.log(url)
 		$http.get(url).then(
 			function(response) {
 				$scope.vidsAll = response.data;
