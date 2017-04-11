@@ -1,0 +1,11 @@
+<button ng-click="depTypeAccCtrl.expandItem(o)"
+	class="w3-btn-block w3-white w3-border w3-left-align">{{o.name}}</button>
+<div class="w3-accordion-content" ng-class="{'w3-show':o.expand}">
+	<ul class="w3-ul w3-border w3-hoverable">
+		<li ng-repeat="i in o.idx"><a
+			href="/v/department/{{vidsAll.departments[i].vUrl}}"> <span
+				class="w3-text-red" ng-if="vidsAll.departments[i].new2016">
+					{{vidsAll.departments[i].new2016}} </span> {{vidsAll.departments[i].name}}
+		</a></li>
+	</ul>
+</div>
