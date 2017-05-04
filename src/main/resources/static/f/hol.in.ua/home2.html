@@ -27,95 +27,12 @@
 			</div>
 		</div>
 		<div class="w3-half">
-			<div class="w3-card-2">
-				<header class="w3-container w3-light-grey">
-					<a href="/v/department"> Відділення</a>
-				</header>
-				<ul class="w3-ul">
-					<li><span class="w3-tiny">19.03.2017</span> Оновлені сторінки
-						відділення <a href="/v/department/expressLabor">експрес лабораторії</a></li>
-					<li><span class="w3-tiny">18.03.2017</span> Оновлені сторінки
-						відділення <a href="/v/department/proctology">проктологія</a></li>
-					<li><span class="w3-tiny">14.03.2017</span> Оновлені сторінки
-						відділеннь <a href="/v/department/detox">детоксикації</a></li>
-					<li><span class="w3-tiny">12.03.2017</span> Оновлені сторінки
-						відділеннь <a href="/v/department/vascularsurgery"> хірургії
-							судин</a></li>
-					<li><span class="w3-tiny">06.03.2017</span> Оновлені сторінки
-						відділеннь <a href="/v/department/ophthalmology">
-							oфтальмології</a> та <a href="/v/department/thorax">торакальної
-							хірургії</a></li>
-					<li>
-					<div class="w3-row">
-							<div class="w3-threequarter">
-								<span class="w3-tiny">01.03.2017</span> Оновлена сторінка <a
-									href="/v/department/ait">відділення анестезіології та
-									інтенсивної терапії</a>
-								<div>
-									Показники за 2016 рік <a
-										href="/v/department/ait?archive=v.ait.20170301.html">
-										окремо </a>
-								</div>
-							</div>
-							<div class="w3-rest">
-								<a
-									onclick="document.getElementById('id01').style.display='block'"><img
-									alt="difficult airway"
-									src="/f/hol.in.ua/model/img/difficultAirway.jpg" width="100" /></a>
-								<div id="id01" class="w3-modal">
-									<div class="w3-modal-content">
-										<div class="w3-container">
-											<span
-												onclick="document.getElementById('id01').style.display='none'"
-												class="w3-closebtn">&times;</span>
-											<h2>Важка інтубація</h2>
-											<img alt="difficult airway"
-												src="/f/hol.in.ua/model/img/difficultAirway.jpg" />
-
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						</li>
-					<li><span class="w3-tiny">21.02.2017 21:06 </span> Оновлена
-						сторінка <a href="/v/department/orthopaedic"> ортопедичного
-							відділення </a> Хмельницької обласної лікарні показниками 2016 ріку.
-						<iframe src="https://www.youtube.com/embed/CDsNZJTWw0w">
-						</iframe>
-						<div>
-							Витяжка з <a
-								href="/v/department/orthopaedic?archive=orthopaedic.20170221.html">
-								звіту показників </a> для медиків.
-						</div></li>
-					<li><span class="w3-tiny">21.02.2017</span> Оновлена сторінка
-						<a href="/v/department/neurosurgery"> нейрохірургічного
-							відділення </a> Хмельницької обласної лікарні даними за 2016 рік</li>
-					<li><span class="w3-tiny">20.02.2017</span> Структурний аналіз
-						роботи <a
-						href="/v/department/neurosurgery?archive=neurosurgery.20170221.html">
-							нейрохірургічного відділення </a> Хмельницької обласної лікарні за
-						2016 рік додається додатково.</li>
-					<li><span class="w3-tiny">19.02.2017</span> Аналіз роботи <a
-						href="/v/department/urology"> урологічного відділення </a>
-						Хмельницької обласної лікарні за 12 міс. 2016 року</li>
-					<li>Слідкуйте за оновленням результатів і показників роботи
-						інших відділеннь за 2016 р. на сайті Хмельницької обласної
-						лікарні, протягом дня і вечора.</li>
-					<li>Аналіз роботи <a href="/v/department/cardiacsurgery">
-							відділення кардіо- та ендоваскулярної хірургії </a> за 2016 рік.
-					</li>
-				</ul>
-				<!-- 
-				<p>&nbsp;</p>
-				<p>Слайд-шоу обраних даних з показників відділень</p>
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				 -->
+			<div ng-include="'/f/hol.in.ua/ng/card-department-news.html'">
 			</div>
+			
 			<p></p>
 			<div class="w3-card-2">
-				<header class="w3-container w3-light-grey">Новини</header>
+				<header class="w3-container w3-light-grey">інші Новини</header>
 				<ul class="w3-ul">
 					<li><span class="w3-tiny">28.02.2017 09:11 </span> <a
 						href="http://www.rnbo.gov.ua/news/2712.html"> Виступ Секретаря
