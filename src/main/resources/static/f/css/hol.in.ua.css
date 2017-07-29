@@ -6,3 +6,13 @@
 		display: none !important;
 	}
 }
+.toolbar-pdf:before {
+	display: inline-block;
+	content: " ";
+	width: 22px;
+	height: 22px;
+	vertical-align: middle;
+	background: url(/f/img/pdf_color.svg);
+	background-repeat: no-repeat;
+	background-size: contain
+}

@@ -48,6 +48,7 @@ public class Db1Rest {
 		map.put("dbToEliky", dbToEliky);
 		return map;
 	}
+
 	private List<Map<String, Object>> dbToEliky(List<Map<String, Object>> db1Test1Medicamenten) {
 		List<Map<String, Object>> list = new ArrayList<>();
 		for (Map<String, Object> map : db1Test1Medicamenten) {
